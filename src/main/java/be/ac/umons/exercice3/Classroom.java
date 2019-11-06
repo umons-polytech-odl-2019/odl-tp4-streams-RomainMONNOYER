@@ -51,7 +51,7 @@ public class Classroom {
         return scoreByStudent.entrySet().stream()
             .filter(entry -> entry.getValue().isPresent())
             .sorted(Map.Entry.comparingByValue((o1, o2) -> -Integer.compare(o1.getAsInt(), o2.getAsInt())))
-            .limit(n)ntValue
+            .limit(n)
             .map(Map.Entry::getKey)
             .collect(Collectors.toList());
     }
