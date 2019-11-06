@@ -22,6 +22,7 @@ public class Classroom {
 
     public double averageScore() {
 
+        /*
         double sum = 0;
         int cpt = 0;
         for (Student student : students) {
@@ -31,6 +32,12 @@ public class Classroom {
             }
         }
         return (sum / cpt);
+
+         */
+        return students.stream()
+                .flatMapToInt(student->student.getScoreByCourse().values().stream().mapToInt(Integer::intValue))
+                .average()
+                .orElse(0.0);
     }
 
     public int countStudents() {
@@ -44,13 +51,13 @@ public class Classroom {
         return scoreByStudent.entrySet().stream()
             .filter(entry -> entry.getValue().isPresent())
             .sorted(Map.Entry.comparingByValue((o1, o2) -> -Integer.compare(o1.getAsInt(), o2.getAsInt())))
-            .limit(n)
+            .limit(n)ntValue
             .map(Map.Entry::getKey)
             .collect(Collectors.toList());
     }
 
     public List<Student> successfulStudents() {
-
+        /*
         Set<Student> studentSet = new TreeSet<>(
                 Comparator.comparingDouble(student -> -student.averageScore()));
 
@@ -64,6 +71,12 @@ public class Classroom {
         for (Student s : studentSet)
             studentList.add(s);
         return studentList;
+
+         */
+        return students.stream()
+                .filter(Student::isSuccessful)
+                .sorted(Comparator.comparingDouble(student->-student.averageScore()))  //le signer moins viens pour les avoir par ordre decroissant
+                .collect(Collectors.toList());
 
     }
 }
