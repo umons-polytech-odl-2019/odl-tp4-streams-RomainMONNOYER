@@ -29,6 +29,7 @@ public class Student {
 
     public double averageScore() {
 
+       /**
         int count = 0;
         double totalScore = 0.0;
         for (Integer score : scoreByCourse.values()) {
@@ -36,10 +37,16 @@ public class Student {
             totalScore += score;
         }
         return totalScore / count;
+        **/
+        return scoreByCourse.values().stream()
+                .mapToInt(Integer::intValue)
+                .average()
+                .orElse(0.0);
     }
 
     public String bestCourse() {
 
+        /**
         String bestCourse = "";
         Integer bestScore = 0;
 
@@ -51,16 +58,29 @@ public class Student {
         }
 
         return bestCourse;
+        **/
+        return scoreByCourse.entryset().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .findFirst()
+                .map(Map.Entry::getKey)
+                .toString();
     }
 
     public int bestScore() {
 
+        /**
         int bestScore = 0;
         for (Map.Entry<String, Integer> entry : scoreByCourse.entrySet()) {
             if (entry.getValue() > bestScore)
                 bestScore = entry.getValue();
         }
         return bestScore;
+         **/
+        return scoreByCourse.entryset().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .findFirst()
+                .maptoInt(Map.Entry::getValue)
+                .orElse(0);
 
     }
 
