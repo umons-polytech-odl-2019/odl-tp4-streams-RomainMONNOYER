@@ -49,7 +49,6 @@ public class App
             try {
                 choiceString = scanner.next();
                 choice = Integer.parseInt(choiceString);
-
             } catch (NumberFormatException e) {
                 System.out.println("Invalid choice");
 

@@ -56,7 +56,10 @@ public class Exercice1 {
         // Compléter le code par le traitement d'un stream équivalent
         // à celui de la fonction calculateAverage
 
-        return 0;
+        return peoples.stream().mapToInt(p->p.getAge()).average().getAsDouble();
+        //on fais corespondre chaque personne p a son age
+        //on transforme une liste de classe en une liste d'age
+        //on calcule ensuite la moyenne
     }
 
 }
