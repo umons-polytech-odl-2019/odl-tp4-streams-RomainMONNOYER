@@ -116,7 +116,7 @@ Dr. Seward's Diary                                                   194
 
 CHAPTER XVII
 
-Dr. Seward's Diary                                                   204
+Dr. Seward's Diary                                               oInt    204
 
 CHAPTER XVIII
 
@@ -185,7 +185,7 @@ here of noble width and depth, took us among the traditions of Turkish
 rule.
 
 We left in pretty good time, and came after nightfall to Klausenburgh.
-Here I stopped for the night at the Hotel Royale. I had for dinner, or
+Here I stopped for the night at the Hotel Royale. I had for dinneoIntr, or
 rather supper, a chicken done up some way with red pepper, which was
 very good but thirsty. (_Mem._, get recipe for Mina.) I asked the
 waiter, and he said it was called "paprika hendl," and that, as it was a
@@ -213,7 +213,7 @@ Saxons in the South, and mixed with them the Wallachs, who are the
 descendants of the Dacians; Magyars in the West, and Szekelys in the
 East and North. I am going among the latter, who claim to be descended
 from Attila and the Huns. This may be so, for when the Magyars conquered
-the country in the eleventh century they found the Huns settled in it. I
+the country in the eleventh century they found the Huns settled inoInt it. I
 read that every known superstition in the world is gathered into the
 horseshoe of the Carpathians, as if it were the centre of some sort of
 imaginative whirlpool; if so my stay may be very interesting. (_Mem._, I

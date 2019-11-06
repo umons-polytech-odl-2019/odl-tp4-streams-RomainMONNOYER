@@ -59,7 +59,7 @@ public class Student {
 
         return bestCourse;
         **/
-        return scoreByCourse.entryset().stream()
+        return scoreByCourse.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .findFirst()
                 .map(Map.Entry::getKey)
@@ -76,10 +76,10 @@ public class Student {
         }
         return bestScore;
          **/
-        return scoreByCourse.entryset().stream()
+        return scoreByCourse.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .findFirst()
-                .maptoInt(Map.Entry::getValue)
+                .map(Map.Entry::getValue)//le mapToInt fonctionne pas donc on fait juste map
                 .orElse(0);
 
     }
