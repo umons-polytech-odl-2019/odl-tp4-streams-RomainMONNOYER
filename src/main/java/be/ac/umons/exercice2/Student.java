@@ -1,6 +1,7 @@
 package be.ac.umons.exercice2;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.requireNonNull;
 
@@ -86,6 +87,8 @@ public class Student {
 
     public Set<String> failedCourses() {
 
+
+        /***
         List<Map.Entry<String, Integer>> filteredEntries = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : scoreByCourse.entrySet()) {
             if (entry.getValue() < 12) {
@@ -98,6 +101,12 @@ public class Student {
             failedCourses.add(entry.getKey());
         }
         return failedCourses;
+         **/
+        return scoreByCourse.entrySet().stream()
+                .filter(entry->entry.getValue()<10)//on filtre les element et on garde en dessous de 12
+                .sorted (Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .map(Map.Entry::getKey)//on recupere les clefs !!!map fais corresponde les clefs. Different de MAP!!!
+                .collect(Collectors.toCollection(LinkedHashSet::new)); //pour creer une collection. On a transformer le resultat en, un ensemble de string (pris automatiquement)
     }
 
     public boolean isSuccessful() {
@@ -106,10 +115,15 @@ public class Student {
 
     public Set<String> attendedCourses() {
 
+        /**
         Set<String> courses = new LinkedHashSet<String>();
         for (String courseName : scoreByCourse.keySet())
             courses.add(courseName);
         return courses;
+         **/
+        return scoreByCourse.keySet().stream()
+                .sorted()
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     public String getName() {
